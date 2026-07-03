@@ -33,7 +33,7 @@ from dotenv import load_dotenv
 import streamlit as st
 import os
 
-from src.chain import conversation_chain
+from src.langsmith_config import configure_langsmith
 
 
 # ==========================================================
@@ -45,10 +45,9 @@ from src.chain import conversation_chain
 # ==========================================================
 
 load_dotenv()
+langsmith_config = configure_langsmith()
 
-
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_PROJECT"] = "Learning"
+from src.chain import conversation_chain
 
 
 # ==========================================================
@@ -69,6 +68,17 @@ st.set_page_config(
 st.title("🤖 LangChain + Gemini")
 
 st.caption("Learning Modern LangChain")
+
+if not langsmith_config["api_key_present"]:
+    st.warning(
+        "LangSmith tracing is disabled because no LangSmith API key was found. "
+        "Add LANGCHAIN_API_KEY or LANGSMITH_API_KEY to your .env file to enable traces."
+    )
+elif not langsmith_config["tracing_enabled"]:
+    st.warning(
+        "LangSmith tracing is disabled because the API key could not be authenticated. "
+        f"Details: {langsmith_config['validation_error']}"
+    )
 
 
 # ==========================================================
