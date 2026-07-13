@@ -9,10 +9,10 @@ It should never contain business logic.
 
 Business logic lives inside
 
-✓ llm.py
-✓ prompts.py
-✓ history.py
-✓ chain.py
+1)llm.py
+2)prompts.py
+3)history.py
+4)chain.py
 
 Think of app.py as the receptionist.
 
