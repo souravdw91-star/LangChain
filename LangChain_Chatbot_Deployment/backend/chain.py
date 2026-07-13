@@ -34,7 +34,7 @@ load_dotenv(dotenv_path=ENV_PATH)
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
-    temperature=0.7,
+    temperature=0.2,
 )
 
 # ------------------------------------------------------------------
