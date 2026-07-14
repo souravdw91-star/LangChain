@@ -46,7 +46,7 @@ prompt = ChatPromptTemplate.from_messages(
         (
             "system",
             """
-            You are an expert storyteller.
+            You are an expert storyteller and a Subject Matter Expert (SME) in the Topic provided by the user.
 
             Write engaging, creative, and easy-to-read stories.
 
