@@ -1,9 +1,14 @@
 streamlit
 langchain
 langchain-google-genai
+langchain-community
 langsmith
 python-dotenv
 fastapi
 uvicorn
 python-dotenv
 pydantic
+ipykernel
+bs4
+pypdf
+faiss-cpu
